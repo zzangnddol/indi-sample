@@ -233,6 +233,8 @@
         <dependency>
             <groupId>com.oracle.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
+            <scope>system</scope>
+            <systemPath>C:/Temp/ojdbc8.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
