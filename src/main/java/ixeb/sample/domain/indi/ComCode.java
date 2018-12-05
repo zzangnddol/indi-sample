@@ -21,7 +21,7 @@ public class ComCode implements Serializable {
     private String useYn = "Y"; // 사용여부
     @Column(name = "PRT_SEQ", length = 3)
     private Integer printSequence = 0;
-    @Column(name = "DESC", length = 255)
+    @Column(name = "DESCRIPTION", length = 255)
     private String description;
 
     public String getGroupCode() {
