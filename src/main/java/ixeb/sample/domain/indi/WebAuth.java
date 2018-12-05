@@ -4,6 +4,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
@@ -16,9 +17,11 @@ public class WebAuth implements Serializable {
     private WebAuthId id;
     @ManyToOne
     @MapsId("userId")
+    @JoinColumn(name = "USER_ID")
     private UserFile userFile;
     @ManyToOne
     @MapsId("menuId")
+    @JoinColumn(name = "MENU_ID")
     private WebMenu webMenu;
 
     public WebAuthId getId() {

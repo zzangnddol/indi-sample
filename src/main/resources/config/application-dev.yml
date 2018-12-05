@@ -34,19 +34,30 @@ spring:
     jackson:
         serialization:
             indent-output: true
+#    datasource:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        url: jdbc:h2:file:./target/h2db/db/ixebsample;DB_CLOSE_DELAY=-1
+#        username: ixebsample
+#        password:
+#        hikari:
+#            auto-commit: false
+#    h2:
+#        console:
+#            enabled: false
+#    jpa:
+#        database-platform: io.github.jhipster.domain.util.FixedH2Dialect
+#        database: H2
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:file:./target/h2db/db/ixebsample;DB_CLOSE_DELAY=-1
-        username: ixebsample
-        password:
+#        url: jdbc:oracle:thin:@192.168.56.101:51521:xe
+        url: jdbc:oracle:thin:@10.1.91.168:49161:xe
+        username: han
+        password: han
         hikari:
             auto-commit: false
-    h2:
-        console:
-            enabled: false
     jpa:
-        database-platform: io.github.jhipster.domain.util.FixedH2Dialect
-        database: H2
+        database-platform: org.hibernate.dialect.Oracle10gDialect
+        database: ORACLE
         show-sql: true
         properties:
             hibernate.id.new_generator_mappings: true

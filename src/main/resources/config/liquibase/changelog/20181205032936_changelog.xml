@@ -1,0 +1,74 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="ybson (generated)" id="1543980598556-1">
+        <createTable tableName="com_code">
+            <column name="stdcode" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="grpcode" type="VARCHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codname" type="VARCHAR(50)"/>
+            <column name="desc" type="VARCHAR(255)"/>
+            <column name="prt_seq" type="INT"/>
+            <column name="useyn" type="VARCHAR(1)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-2">
+        <createTable tableName="userfile">
+            <column name="user_id" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cst_cls" type="VARCHAR(255)"/>
+            <column name="cst_nm" type="VARCHAR(30)"/>
+            <column name="cst_nbr" type="VARCHAR(10)"/>
+            <column name="email_addr" type="VARCHAR(60)"/>
+            <column name="team_nm" type="VARCHAR(30)"/>
+            <column name="user_nm" type="VARCHAR(30)"/>
+            <column name="user_pw" type="VARCHAR(16)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-3">
+        <createTable tableName="webauth">
+            <column name="menu_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-4">
+        <createTable tableName="webmenu">
+            <column name="menu_id" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="menu_bm" type="VARCHAR(50)"/>
+            <column name="menu_type" type="VARCHAR(1)"/>
+            <column name="prt_seq" type="VARCHAR(4)"/>
+            <column name="useyn" type="VARCHAR(1)"/>
+            <column name="up_menu_id" type="VARCHAR(10)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-5">
+        <addPrimaryKey columnNames="stdcode, grpcode" constraintName="com_codePK" tableName="com_code"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-6">
+        <addPrimaryKey columnNames="user_id" constraintName="userfilePK" tableName="userfile"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-7">
+        <addPrimaryKey columnNames="menu_id, user_id" constraintName="webauthPK" tableName="webauth"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-8">
+        <addPrimaryKey columnNames="menu_id" constraintName="webmenuPK" tableName="webmenu"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-9">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="webauth" constraintName="FKeu595gcnsjs8qj49p18lom1th" deferrable="false" initiallyDeferred="false" referencedColumnNames="user_id" referencedTableName="userfile"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-10">
+        <addForeignKeyConstraint baseColumnNames="menu_id" baseTableName="webauth" constraintName="FKkm2n2rbants84s02iqlw3blu6" deferrable="false" initiallyDeferred="false" referencedColumnNames="menu_id" referencedTableName="webmenu"/>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1543980598556-11">
+        <addForeignKeyConstraint baseColumnNames="up_menu_id" baseTableName="webmenu" constraintName="FKq2bppad0ww40qbr86q0atl9qv" deferrable="false" initiallyDeferred="false" referencedColumnNames="menu_id" referencedTableName="webmenu"/>
+    </changeSet>
+</databaseChangeLog>
