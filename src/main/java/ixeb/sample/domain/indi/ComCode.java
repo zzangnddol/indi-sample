@@ -1,9 +1,13 @@
 package ixeb.sample.domain.indi;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "COM_CODE")
 public class ComCode implements Serializable {
     @Id
     @Column(name = "GRPCODE", length = 3)
