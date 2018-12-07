@@ -1,0 +1,11 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="ybson (generated)" id="1544098773114-1">
+        <addColumn tableName="userfile">
+            <column name="group_id" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="ybson (generated)" id="1544098773114-2">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="userfile" constraintName="FK8lf6x5l6xpi01wxfkbkh4djvu" deferrable="false" initiallyDeferred="false" referencedColumnNames="user_id" referencedTableName="userfile"/>
+    </changeSet>
+</databaseChangeLog>

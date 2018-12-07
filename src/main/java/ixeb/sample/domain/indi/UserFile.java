@@ -3,6 +3,8 @@ package ixeb.sample.domain.indi;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -24,8 +26,14 @@ public class UserFile implements Serializable {
     private String customerClass;   // 사용자 분류 - G: 그룹
     @Column(name = "TEAM_NM", length = 30)
     private String teamName;        // 부서(팀) 명
+    @Column(name = "CELL_PHONE", length = 11)
+    private String cellPhone;
     @Column(name = "EMAIL_ADDR", length = 60)
     private String emailAddress;           // e-mail
+
+    @ManyToOne
+    @JoinColumn(name = "GROUP_ID")
+    private UserFile parent;
 
     public String getUserId() {
         return userId;
@@ -89,5 +97,21 @@ public class UserFile implements Serializable {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public UserFile getParent() {
+        return parent;
+    }
+
+    public void setParent(UserFile parent) {
+        this.parent = parent;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 }
